@@ -23,15 +23,12 @@ export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]>
             model: "deepseek-chat",
         });
 
-        //console.log(completion.choices[0].message.content);
-
         const jsonString = completion.choices[0].message.content
 
         const jsonStringExtract = extractJSONContent(jsonString)
 
-        console.log(jsonStringExtract);
-
-        const parsedData = jsonStringExtract != null ? JSON.parse(jsonStringExtract) : [];
+        const parsedData = jsonStringExtract != null ? JSON.parse(
+            JSON.stringify(jsonStringExtract)) : [];
 
         if (Array.isArray(parsedData.items)) {
             return parsedData.items;

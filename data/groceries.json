@@ -1,4 +1,234 @@
 {
   "groceries": [
+    {
+      "id": "9243027d-8242-4617-bc7c-196ed6bbc151",
+      "name": "peaches",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "6 cups, sliced",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "986326dd-ef70-4aff-8189-328d954c5413",
+      "name": "sugar",
+      "store": "Costco",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1 cup",
+      "quantity": "1"
+    },
+    {
+      "id": "fa6ceeca-ed8c-44b0-ac81-eb58786c6fb1",
+      "name": "unsalted butter",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1/2 cup (1 stick)",
+      "quantity": ""
+    },
+    {
+      "id": "65b9b9e6-27a0-4eb9-91ef-792da6790477",
+      "name": "flour",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1 1/2 cups",
+      "quantity": ""
+    },
+    {
+      "id": "b653ecd4-b7fb-4004-a378-b85ccf2eed93",
+      "name": "vanilla extract",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1 teaspoon",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "62700f9c-b3bc-4406-9d7e-71f1d937fe90",
+      "name": "cinnamon",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1 teaspoon",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "054c351b-22df-427c-ba37-b0d8540fa7dc",
+      "name": "baking powder",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "2 teaspoons",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "d6dbb6b9-f71a-4a8f-96d0-c45109cd5362",
+      "name": "salt",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1/2 teaspoon",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "03c79853-3713-4cda-9e67-37b258891010",
+      "name": "milk",
+      "store": "",
+      "recipe": "Peach Cobbler",
+      "recipeMeasure": "1 cup",
+      "quantity": "",
+      "completed": true
+    },
+    {
+      "id": "0962620e-86e0-458d-86d1-398b608c9ef3",
+      "name": "all-purpose flour",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1 1/2 cups",
+      "quantity": ""
+    },
+    {
+      "id": "88c6f535-8efa-4c73-92b0-e8fbf5128913",
+      "name": "sugar",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "3 tablespoons",
+      "quantity": ""
+    },
+    {
+      "id": "bd3fd40f-99f0-4fcb-84d7-e66aea9248c1",
+      "name": "baking powder",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1 tablespoon",
+      "quantity": ""
+    },
+    {
+      "id": "a9aa60ba-a8b3-4965-87ed-929cc7fb957f",
+      "name": "salt",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1/4 teaspoon",
+      "quantity": ""
+    },
+    {
+      "id": "69feedeb-f5bf-4b81-9a4a-f836565352d6",
+      "name": "butter",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "3 tablespoons, melted",
+      "quantity": ""
+    },
+    {
+      "id": "fadfcea0-c897-41e2-9b5d-97e7b78dbfc1",
+      "name": "milk",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1 1/4 cups",
+      "quantity": ""
+    },
+    {
+      "id": "e31e2160-11a7-451a-9425-8dcaf2ee7782",
+      "name": "egg",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1",
+      "quantity": ""
+    },
+    {
+      "id": "bec070b6-b3e0-4d7a-9e5d-c3496b600ef8",
+      "name": "chocolate chips",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "1/2 cup",
+      "quantity": ""
+    },
+    {
+      "id": "caa38c8a-66d1-4d27-a60d-25f1df578f33",
+      "name": "vegetable oil",
+      "store": "",
+      "recipe": "Chocolate Chip Pan Cakes",
+      "recipeMeasure": "for cooking",
+      "quantity": ""
+    },
+    {
+      "id": "84679981-c43c-4f71-aafa-3a346238d088",
+      "name": "apples",
+      "store": "Costco",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "6-8 medium",
+      "quantity": "1 bag"
+    },
+    {
+      "id": "28a957f5-a399-47e5-801e-af6ea2021374",
+      "name": "brown sugar",
+      "store": "Costco",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1/4 cup",
+      "quantity": "1"
+    },
+    {
+      "id": "a3bc284c-626e-402f-90b6-94d5babbd93e",
+      "name": "sugar",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "3/4 cup",
+      "quantity": ""
+    },
+    {
+      "id": "dbe4b730-65b8-4985-bca2-5d75e86aeccb",
+      "name": "lemon juice",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1 tablespoon",
+      "quantity": ""
+    },
+    {
+      "id": "2f274c2c-b6cb-4188-9943-65b3f949dfe7",
+      "name": "butter",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1 tablespoon",
+      "quantity": ""
+    },
+    {
+      "id": "a058dd5f-c99f-4640-8f56-e8e779b5f37c",
+      "name": "pie crust",
+      "store": "Walmart",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "2 (for top and bottom)",
+      "quantity": "1"
+    },
+    {
+      "id": "5293edea-867c-451e-b4e0-b61bd67f5118",
+      "name": "egg",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1 (for egg wash)",
+      "quantity": ""
+    },
+    {
+      "id": "88ebe7c7-1800-4dbe-834f-2075f373ebee",
+      "name": "all-purpose flour",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "2 tablespoons",
+      "quantity": ""
+    },
+    {
+      "id": "b338f1c4-39be-4b9e-aec4-c7627fae6500",
+      "name": "cinnamon",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1 teaspoon",
+      "quantity": ""
+    },
+    {
+      "id": "dcdf1ce4-6123-48e8-b82b-a7a882cf068c",
+      "name": "nutmeg",
+      "store": "",
+      "recipe": "Apple Pie",
+      "recipeMeasure": "1/4 teaspoon",
+      "quantity": ""
+    }
   ]
 }

@@ -23,7 +23,7 @@ const GroceryList: React.FC<GroceryListProps> = ({groceries}) => {
                 </thead>
                 <tbody>
                 {
-                    groceries.map((grocery: IGrocery) => {
+                    groceries?.map((grocery: IGrocery) => {
                             if (!grocery.completed) {
                                 return <Grocery key={grocery.id} grocery={grocery}/>
                             }
@@ -49,7 +49,7 @@ const GroceryList: React.FC<GroceryListProps> = ({groceries}) => {
                 </thead>
                 <tbody>
                 {
-                    groceries.map((grocery: IGrocery) => {
+                    groceries?.map((grocery: IGrocery) => {
                             if (grocery.completed) {
                                 return <Grocery key={grocery.id} grocery={grocery}/>
                             }
