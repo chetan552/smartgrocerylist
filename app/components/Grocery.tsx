@@ -7,7 +7,7 @@ import Modal from "@/app/components/Modal";
 import {completeGroceryItem, deleteGroceryItem, updateNewGroceryItem} from "@/app/api/api";
 import {useRouter} from "next/navigation";
 
-interface GroceryProps {
+export interface GroceryProps {
     grocery: IGrocery;
 }
 
@@ -108,7 +108,6 @@ const Grocery: React.FC<GroceryProps> = ({grocery}) => {
             </td>
         </tr>
     )
-        ;
 };
 
 export default Grocery;

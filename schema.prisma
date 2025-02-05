@@ -1,0 +1,33 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Grocery {
+  id                String     @default(cuid()) @id
+  list              List    @relation(references: [id], fields: [listId])
+  listId            String
+  name              String
+  store             String?
+  quantity          String?
+  recipe            String?
+  recipeMeasure     String?
+  completed         Boolean @default(false)
+  createdAt         DateTime  @default(now()) @map(name: "created_at")
+  updatedAt         DateTime  @updatedAt @map(name: "updated_at")
+  @@map(name: "groceries")
+}
+
+model List {
+  id                String     @default(cuid()) @id
+  name              String
+  groceries         Grocery[]
+  @@map(name: "list")
+}
