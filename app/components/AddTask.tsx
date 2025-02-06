@@ -7,8 +7,13 @@ import {addNewGroceryItem} from "@/app/api/api";
 import {useRouter} from "next/navigation";
 import {v4 as uuidv4} from "uuid";
 import {getSuggestions} from "@/app/api/openai";
+import {createNewGroceryItem} from "@/app/api/list";
 
-const AddTask = () => {
+export interface AddTaskProps {
+    listId: string;
+}
+
+const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
     const router = useRouter();
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const [newItemValue, setNewItemValue] = useState<string>("");
@@ -22,14 +27,13 @@ const AddTask = () => {
 
     const handleSubmitNewItem: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        await addNewGroceryItem({
-            "id": uuidv4(),
+        await createNewGroceryItem({
             "name": newItemValue,
             "store": newItemStoreValue,
             "recipe": "",
             "recipeMeasure": "",
             "quantity": newItemQuantity,
-        })
+        }, listId)
         setNewItemValue("");
         setNewItemStoreValue("");
         setNewItemQuantity("");

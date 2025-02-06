@@ -1,9 +1,9 @@
 export interface IGrocery {
-    id: string;
+    id?: string;
     name: string;
     store: string;
     quantity: string;
-    recipe: string;
-    recipeMeasure: string;
+    recipe?: string;
+    recipeMeasure?: string;
     completed?: boolean;
 }

@@ -4,7 +4,7 @@ import {AiOutlinePlusCircle} from "react-icons/ai";
 import React, {FormEventHandler, useEffect, useState} from "react";
 import Modal from "@/app/components/Modal";
 import {useRouter} from "next/navigation";
-import {createNewList, getAllLists} from "@/pages/api/list";
+import {createNewList, getAllLists} from "@/app/api/list";
 import {IList} from "@/types/lists";
 
 const Sidebar = () => {
@@ -45,7 +45,7 @@ const Sidebar = () => {
                     <ul className="menu w-50">
                         {listValues?.map((listValue) =>
                             <li key={listValue.id}>
-                                <Link key={listValue.id} href={`/li/${listValue.id}`}>
+                                <Link key={listValue.id} href={`/lists/${listValue.id}`}>
                                     {listValue.name}
                                 </Link>
                             </li>

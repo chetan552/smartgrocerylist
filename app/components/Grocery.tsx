@@ -4,14 +4,16 @@ import React, {FormEventHandler} from 'react';
 import {IGrocery} from "@/types/grocery";
 import {FiEdit, FiTrash2} from "react-icons/fi";
 import Modal from "@/app/components/Modal";
-import {completeGroceryItem, deleteGroceryItem, updateNewGroceryItem} from "@/app/api/api";
+import {completeGroceryItem, deleteGroceryItem} from "@/app/api/api";
 import {useRouter} from "next/navigation";
+import {updateGroceryItem} from "@/app/api/list";
 
 export interface GroceryProps {
+    listId: string;
     grocery: IGrocery;
 }
 
-const Grocery: React.FC<GroceryProps> = ({grocery}) => {
+const Grocery: React.FC<GroceryProps> = ({grocery, listId}) => {
     const router = useRouter();
     const [openModelEdit, setOpenModelEdit] = React.useState(false);
     const [openModelDelete, setOpenModelDelete] = React.useState(false);
@@ -21,14 +23,14 @@ const Grocery: React.FC<GroceryProps> = ({grocery}) => {
 
     const handleSubmitEditItem: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        await updateNewGroceryItem({
+        await updateGroceryItem({
             "id": grocery.id,
             "name": itemToEdit,
             "store": storeToEdit,
             "recipe": grocery.recipe,
             "recipeMeasure": grocery.recipeMeasure,
             "quantity": quantityToEdit
-        })
+        }, listId);
         setItemToEdit("")
         setStoreToEdit("")
         setQuantityToEdit("")
@@ -36,10 +38,12 @@ const Grocery: React.FC<GroceryProps> = ({grocery}) => {
         router.refresh();
     }
 
-    const handleDeleteItem = async (id: string) => {
-        await deleteGroceryItem(id)
-        setOpenModelDelete(false);
-        router.refresh();
+    const handleDeleteItem = async (id?: string) => {
+        if (id) {
+            await deleteGroceryItem(id)
+            setOpenModelDelete(false);
+            router.refresh();
+        }
     }
 
     const strikethroughStyle = (isCompleted?: boolean) => {

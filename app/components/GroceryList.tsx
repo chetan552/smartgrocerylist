@@ -3,10 +3,11 @@ import Grocery from "@/app/components/Grocery";
 import React from "react";
 
 interface GroceryListProps {
+    listId: string;
     groceries?: IGrocery[]
 }
 
-const GroceryList: React.FC<GroceryListProps> = ({groceries}) => {
+const GroceryList: React.FC<GroceryListProps> = ({groceries, listId}) => {
     return (
         <div>
             <div className="h-96 overflow-x-auto mb-18">
@@ -25,7 +26,7 @@ const GroceryList: React.FC<GroceryListProps> = ({groceries}) => {
                 {
                     groceries?.map((grocery: IGrocery) => {
                             if (!grocery.completed) {
-                                return <Grocery key={grocery.id} grocery={grocery}/>
+                                return <Grocery key={grocery.id} grocery={grocery} listId={listId}/>
                             }
                         }
                     )
@@ -51,7 +52,7 @@ const GroceryList: React.FC<GroceryListProps> = ({groceries}) => {
                 {
                     groceries?.map((grocery: IGrocery) => {
                             if (grocery.completed) {
-                                return <Grocery key={grocery.id} grocery={grocery}/>
+                                return <Grocery key={grocery.id} grocery={grocery} listId={listId}/>
                             }
                         }
                     )
