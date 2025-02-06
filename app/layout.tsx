@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/app/components/Sidebar";
+import {getSession} from "@/auth";
+import Providers from "@/app/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,21 +20,24 @@ export const metadata: Metadata = {
   description: "A Smart Grocery List App",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+    const session = await getSession()
+
+    return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <div className="flex">
-               <Sidebar/>
-              {children}
-          </div>
-
+          <Providers session={session}>
+              <div className="flex">
+                   <Sidebar/>
+                  {children}
+              </div>
+          </Providers>
       </body>
     </html>
   );

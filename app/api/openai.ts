@@ -27,13 +27,17 @@ export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]>
 
         const jsonString = completion.choices[0].message.content
 
+        console.log(jsonString)
+
         const jsonStringExtract = extractJSONContent(jsonString)
 
         const parsedData = jsonStringExtract != null ? JSON.parse(
             JSON.stringify(jsonStringExtract)) : [];
 
-        if (Array.isArray(parsedData.items)) {
-            return parsedData.items;
+        console.log(parsedData)
+
+        if (Array.isArray(parsedData["items"])) {
+            return parsedData["items"];
         } else if (Array.isArray(parsedData["grocery_items"])) {
             return parsedData["grocery_items"];
         } else {
