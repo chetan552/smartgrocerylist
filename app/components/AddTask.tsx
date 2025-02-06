@@ -3,9 +3,7 @@ import {AiOutlinePlusCircle} from "react-icons/ai";
 import { BsStars } from "react-icons/bs";
 import Modal from "@/app/components/Modal";
 import React, {FormEventHandler, useState} from "react";
-import {addNewGroceryItem} from "@/app/api/api";
 import {useRouter} from "next/navigation";
-import {v4 as uuidv4} from "uuid";
 import {getSuggestions} from "@/app/api/openai";
 import {createNewGroceryItem} from "@/app/api/list";
 
@@ -50,14 +48,13 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
         console.log("got the list: " + JSON.stringify(aiGroceryItems));
 
         aiGroceryItems?.map(async (aiGroceryItem) => {
-            await addNewGroceryItem({
-                "id": uuidv4(),
+            await createNewGroceryItem({
                 "name": aiGroceryItem.item,
                 "store": "",
                 "recipe": recipeItemValue,
                 "recipeMeasure": aiGroceryItem.quantity,
                 "quantity": "",
-            })
+            }, listId)
         })
         setOpenAIModal(false);
         setLoading(false);

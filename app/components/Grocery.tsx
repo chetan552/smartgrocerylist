@@ -4,9 +4,8 @@ import React, {FormEventHandler} from 'react';
 import {IGrocery} from "@/types/grocery";
 import {FiEdit, FiTrash2} from "react-icons/fi";
 import Modal from "@/app/components/Modal";
-import {completeGroceryItem, deleteGroceryItem} from "@/app/api/api";
 import {useRouter} from "next/navigation";
-import {updateGroceryItem} from "@/app/api/list";
+import {completeGroceryItem, deleteGroceryItem, updateGroceryItem} from "@/app/api/list";
 
 export interface GroceryProps {
     listId: string;
@@ -51,7 +50,7 @@ const Grocery: React.FC<GroceryProps> = ({grocery, listId}) => {
     }
 
     const markComplete = async (grocery: IGrocery): Promise<void> => {
-        await completeGroceryItem(grocery);
+        await completeGroceryItem(grocery.id);
 
         router.refresh();
     }

@@ -19,6 +19,29 @@ export const getAllLists = async (): Promise<IList[]> => {
     return listArray
 }
 
+export const deleteGroceryItem = async (id: string): Promise<void> => {
+    await prisma.grocery.delete(
+        {
+            where: {
+                id: id
+            }
+        }
+    )
+}
+
+export const completeGroceryItem = async (id?: string): Promise<void> => {
+    await prisma.grocery.update(
+        {
+            where: {
+                id: id
+            },
+            data: {
+                completed: true,
+            }
+        }
+    )
+}
+
 export const createNewGroceryItem = async (grocery: IGrocery, listId: string): Promise<void> => {
     await prisma.grocery.create({
         data: {
