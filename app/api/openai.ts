@@ -27,19 +27,14 @@ export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]>
 
         const jsonString = completion.choices[0].message.content
 
-        console.log(jsonString)
-
         const jsonStringExtract = extractJSONContent(jsonString)
 
-        const parsedData = jsonStringExtract != null ? JSON.parse(
-            JSON.stringify(jsonStringExtract)) : [];
+        const parsedData  = jsonStringExtract != null ? JSON.parse(jsonStringExtract[0]) : [];
 
-        console.log(parsedData)
-
-        if (Array.isArray(parsedData["items"])) {
-            return parsedData["items"];
-        } else if (Array.isArray(parsedData["grocery_items"])) {
-            return parsedData["grocery_items"];
+        if (parsedData["items"]) {
+            return parsedData["items"] as AIGroceryItem[];
+        } else if (parsedData["grocery_items"]) {
+            return parsedData["grocery_items"] as AIGroceryItem[];
         } else {
             console.error("No valid array found under 'items' or 'grocery_items'");
             return [];

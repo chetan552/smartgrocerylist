@@ -22,7 +22,7 @@ const Sidebar = () => {
             setListValues(lists)
         }
         fetchLists();
-    }, []);
+    }, [newItemValue]);
 
     const handleSubmitNewList: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
@@ -38,7 +38,11 @@ const Sidebar = () => {
         <>
             {session ? (
                     <div className="bg-gray-800 text-white h-screen w-64 p-4">
-                        <h2 className="text-xl font-bold mb-4">Smart Grocery List</h2>
+                        <h2 className="text-xl font-bold mb-4">
+                            <Link href={"/"}>
+                                Smart Grocery List
+                            </Link>
+                        </h2>
                         <ul>
                             <li className="mb-2">
                                 <button onClick={() => setListAddModalOpen(true)}
