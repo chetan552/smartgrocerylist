@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const OPENAI_API_KEY = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
