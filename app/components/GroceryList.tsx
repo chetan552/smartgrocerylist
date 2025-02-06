@@ -20,6 +20,7 @@ const GroceryList: React.FC<GroceryListProps> = ({groceries, listId}) => {
                     <th>Recipe</th>
                     <th>Recipe Measure</th>
                     <th>Store</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>

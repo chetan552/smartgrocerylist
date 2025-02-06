@@ -20,7 +20,7 @@ export default function Home() {
                         <div className="space-x-5">
                             <button
                                 onClick={() => signOut()}
-                                className="border border-black rounded-lg bg-blue-500 px-5 py-1"
+                                className="btn btn-primary mb-5"
                             >
                                 Sign Out
                             </button>
