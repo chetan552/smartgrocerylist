@@ -1,13 +1,17 @@
 "use server"
 
-import OpenAI from "openai";
+//import OpenAI from "openai";
+import {AzureOpenAI} from "openai";
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_API_ENDPOINT = process.env.OPENAI_API_ENDPOINT;
+const OPENAI_MODEL = process.env.OPENAI_MODEL;
 
-const openai = new OpenAI({
-    baseURL: 'https://api.deepseek.com',
-    apiKey: OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true
+const openai = new AzureOpenAI({
+    apiVersion: '2024-08-01-preview',
+    endpoint: OPENAI_API_ENDPOINT,
+    // baseURL: OPENAI_API_ENDPOINT,
+    apiKey: OPENAI_API_KEY
 });
 
 interface AIGroceryItem {
@@ -22,14 +26,18 @@ export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]>
             messages: [{ role: "system", content: `You are a helpful AI chat assistant.` },
                 {role: "user", content: `Suggest grocery items based on this recipe. 
                 Return only json response with the list of items and their quantities. ${userInput}`}],
-            model: "deepseek-chat",
+            model: OPENAI_MODEL as string,
         });
 
         const jsonString = completion.choices[0].message.content
 
+        console.log(jsonString);
+
         const jsonStringExtract = extractJSONContent(jsonString)
 
         const parsedData  = jsonStringExtract != null ? JSON.parse(jsonStringExtract[0]) : [];
+
+        console.log(parsedData);
 
         if (parsedData["items"]) {
             return parsedData["items"] as AIGroceryItem[];
