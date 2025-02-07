@@ -75,11 +75,11 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
         <div className="mt-5">
             <div>
                 <button onClick={() => setModalOpen(true)}
-                        className="btn btn-primary mr-5">Add New Item
+                        className="btn btn-outline btn-primary mr-5">Add New Item
                     <AiOutlinePlusCircle className='ml-2' size={18}/>
                 </button>
                 <button onClick={() => setOpenAIModal(true)}
-                        className="btn btn-primary">Add Items from Recipe
+                        className="btn btn-outline btn-accent">Add Items from Recipe
                     <BsStars className='ml-2' size={18}/>
                 </button>
                 <button onClick={() => setOpenModelDelete(true)}

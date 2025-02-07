@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     return (
         <>
             {session ? (
-                <header className="w-full bg-gray-900 text-white py-4 px-6 flex justify-between items-center shadow-md">
+                <header className="w-full bg-gray-800 text-white py-4 px-6 flex justify-between items-center shadow-md">
                     <h1 className="text-xl font-bold"><Link href={"/"}>
                         Smart Grocery List
                     </Link></h1>
