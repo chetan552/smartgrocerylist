@@ -38,15 +38,10 @@ const Sidebar = () => {
         <>
             {session ? (
                     <div className="bg-gray-800 text-white h-screen w-64 p-4">
-                        <h2 className="text-xl font-bold mb-4">
-                            <Link href={"/"}>
-                                Smart Grocery List
-                            </Link>
-                        </h2>
                         <ul>
                             <li className="mb-2">
                                 <button onClick={() => setListAddModalOpen(true)}
-                                        className="btn btn-primary mb-5"> Add List
+                                        className="btn btn-neutral mb-5"> Add List
                                     <AiOutlinePlusCircle className='' size={18}/>
                                 </button>
                                 <h2 className='text-xl font-bold'>Lists</h2>

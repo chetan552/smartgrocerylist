@@ -1,6 +1,6 @@
 "use client"
 
-import {signIn, signOut, useSession} from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
 
 export default function Home() {
     const { data: session } = useSession()
@@ -10,21 +10,9 @@ export default function Home() {
             {session ? (
                 <main className='max-w-4xl mx-auto mt-4'>
                     <div className='text-center my-5 flex flex-col gap-4'>
-                        <h1 className='text-2xl font-bold'>
-                            Smart Grocery List App
-                        </h1>
                         <h1 className="text-3xl text-white-500 font-bold">
                             Welcome back, {session.user?.name}
                         </h1>
-                        <p className="text-2xl font-semibold">{session.user?.email}</p>
-                        <div className="space-x-5">
-                            <button
-                                onClick={() => signOut()}
-                                className="btn btn-primary mb-5"
-                            >
-                                Sign Out
-                            </button>
-                        </div>
                     </div>
                 </main>
                 ) : (
