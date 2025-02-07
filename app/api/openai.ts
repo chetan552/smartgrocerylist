@@ -13,8 +13,9 @@ const openai = new AzureOpenAI({
 });
 
 interface AIGroceryItem {
-    item: string;
+    item?: string;
     quantity: string;
+    name?: string;
 }
 
 export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]> => {
@@ -29,13 +30,9 @@ export const getSuggestions = async (userInput:string): Promise<AIGroceryItem[]>
 
         const jsonString = completion.choices[0].message.content
 
-        console.log(jsonString);
-
         const jsonStringExtract = extractJSONContent(jsonString)
 
         const parsedData  = jsonStringExtract != null ? JSON.parse(jsonStringExtract[0]) : [];
-
-        console.log(parsedData);
 
         if (parsedData["items"]) {
             return parsedData["items"] as AIGroceryItem[];

@@ -46,16 +46,17 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
 
         const aiGroceryItems = await getSuggestions(recipeItemValue);
 
-        console.log("got the list: " + JSON.stringify(aiGroceryItems));
-
         aiGroceryItems?.map(async (aiGroceryItem) => {
-            await createNewGroceryItem({
-                "name": aiGroceryItem.item,
-                "store": "",
-                "recipe": recipeItemValue,
-                "recipeMeasure": aiGroceryItem.quantity,
-                "quantity": "",
-            }, listId)
+            if (aiGroceryItem.item || aiGroceryItem.name) {
+                const name: string = aiGroceryItem.item ? aiGroceryItem.item : aiGroceryItem.name ? aiGroceryItem.name : "";
+                await createNewGroceryItem({
+                    "name": name,
+                    "store": "",
+                    "recipe": recipeItemValue,
+                    "recipeMeasure": aiGroceryItem.quantity,
+                    "quantity": "",
+                }, listId)
+            }
         })
         setOpenAIModal(false);
         setLoading(false);

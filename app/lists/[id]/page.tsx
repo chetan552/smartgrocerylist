@@ -9,12 +9,17 @@ export default async function ListGroceries({ params }: {
     params: Promise<{ id: string }>
 }) {
     const listId = (await params).id
+
     const listWithGroceries = await prisma.list.findUnique({
         where: {
             id: String(listId),
         },
-        include: {
+        select: {
+            name: true,
             groceries: {
+                orderBy:{
+                    updatedAt: 'desc'
+                },
                 select: {
                     id:true,
                     name: true,
@@ -35,7 +40,7 @@ export default async function ListGroceries({ params }: {
         <main className='max-w-4xl mx-auto mt-4'>
             <div className='text-center my-5 flex flex-col gap-4'>
                 <h1 className='text-2xl font-bold'>
-                    Smart Shopper App
+                    {listWithGroceries?.name}
                 </h1>
                 <AddTask listId={listId}/>
             </div>
