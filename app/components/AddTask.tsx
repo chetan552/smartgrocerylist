@@ -111,8 +111,8 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
                             onChange={(e) => setNewItemQuantity(e.target.value)}
                             type="text"
                             placeholder="Quantity"
-                            className="input input-bordered"/>
-                        <select className="select select-bordered w-full max-w-xs"
+                            className="input input-bordered w-24"/>
+                        <select className="select select-bordered w-32"
                                 value={newItemStoreValue}
                                 name="Store"
                                 onChange={(e) => setNewItemStoreValue(e.target.value)}>

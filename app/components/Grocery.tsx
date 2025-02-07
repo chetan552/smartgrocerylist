@@ -81,8 +81,8 @@ const Grocery: React.FC<GroceryProps> = ({grocery, listId}) => {
                                 onChange={(e) => setQuantityToEdit(e.target.value)}
                                 type="text"
                                 placeholder="Quantity"
-                                className="input input-bordered"/>
-                            <select className="select select-bordered w-full max-w-xs"
+                                className="input input-bordered w-24"/>
+                            <select className="select select-bordered w-32"
                                     value={storeToEdit}
                                     name="Store"
                                     onChange={(e) => setStoreToEdit(e.target.value)}>
