@@ -12,6 +12,17 @@ export const createNewList = async (name: string): Promise<void> => {
     });
 }
 
+export const deleteGroceryList = async (id: string): Promise<void> => {
+    await deleteAllGroceryItems(id)
+    await prisma.list.delete(
+        {
+            where: {
+                id: id
+            }
+        }
+    )
+}
+
 export const getAllLists = async (): Promise<IList[]> => {
     const lists = await prisma.list.findMany();
 
@@ -24,6 +35,16 @@ export const deleteGroceryItem = async (id: string): Promise<void> => {
         {
             where: {
                 id: id
+            }
+        }
+    )
+}
+
+export const deleteAllGroceryItems = async (listId: string): Promise<void> => {
+    await prisma.grocery.deleteMany(
+        {
+            where: {
+                listId: listId
             }
         }
     )

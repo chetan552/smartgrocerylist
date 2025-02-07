@@ -53,7 +53,7 @@ const Sidebar = () => {
 
                                 <ul className="menu w-50">
                                     {listValues?.map((listValue) =>
-                                        <li key={listValue.id}>
+                                        <li key={listValue.id} >
                                             <Link key={listValue.id} href={`/lists/${listValue.id}`}>
                                                 {listValue.name}
                                             </Link>

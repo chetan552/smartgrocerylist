@@ -1,11 +1,11 @@
 "use client"
 import {AiOutlinePlusCircle} from "react-icons/ai";
-import { BsStars } from "react-icons/bs";
+import {BsStars } from "react-icons/bs";
 import Modal from "@/app/components/Modal";
 import React, {FormEventHandler, useState} from "react";
 import {useRouter} from "next/navigation";
 import {getSuggestions} from "@/app/api/openai";
-import {createNewGroceryItem} from "@/app/api/list";
+import {createNewGroceryItem, deleteGroceryList} from "@/app/api/list";
 
 export interface AddTaskProps {
     listId: string;
@@ -14,6 +14,7 @@ export interface AddTaskProps {
 const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
     const router = useRouter();
     const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const [openModelDelete, setOpenModelDelete] = React.useState(false);
     const [newItemValue, setNewItemValue] = useState<string>("");
     const [newItemStoreValue, setNewItemStoreValue] = useState<string>("");
     const [newItemQuantity, setNewItemQuantity] = useState<string>("1");
@@ -61,17 +62,30 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
         router.refresh();
     }
 
+   const handleDeleteList = async (id?: string) => {
+        if (id) {
+            await deleteGroceryList(id)
+            setOpenModelDelete(false);
+            router.push("/");
+        }
+    }
+
     return(
         <div className="mt-5">
-            <button onClick={() => setModalOpen(true)}
-                    className="btn btn-primary mr-5">Add New Item
-                <AiOutlinePlusCircle className='ml-2' size={18}/>
-            </button>
-            <button onClick={() => setOpenAIModal(true)}
-                    className="btn btn-primary">Add Items from Recipe
-                <BsStars className='ml-2' size={18}/>
-            </button>
-
+            <div>
+                <button onClick={() => setModalOpen(true)}
+                        className="btn btn-primary mr-5">Add New Item
+                    <AiOutlinePlusCircle className='ml-2' size={18}/>
+                </button>
+                <button onClick={() => setOpenAIModal(true)}
+                        className="btn btn-primary">Add Items from Recipe
+                    <BsStars className='ml-2' size={18}/>
+                </button>
+                <button onClick={() => setOpenModelDelete(true)}
+                        className="ml-5 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    Delete List
+                </button>
+            </div>
             <Modal isOpen={openAIModal} setModalOpen={setOpenAIModal}>
                 <form method="dialog" onSubmit={handleAIGrocersSubmit}>
                     <h3 className="font-bold text-lg">Enter Recipe</h3>
@@ -89,7 +103,8 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
 
                         {loading && (
                             <div className="flex items-center space-x-2">
-                                <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                                <div
+                                    className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
                             </div>
                         )}
                     </div>
@@ -126,6 +141,16 @@ const AddTask: React.FC<AddTaskProps> = ({ listId }) => {
                         </button>
                     </div>
                 </form>
+            </Modal>
+
+            <Modal isOpen={openModelDelete} setModalOpen={setOpenModelDelete}>
+                <h3 className="text-lg">Confirm Delete List </h3>
+                <div className="modal-action">
+                    <button className="btn" onClick={() => handleDeleteList(listId)}>Yes</button>
+                    <button onClick={() => setOpenModelDelete(false)}
+                            className="btn">Close
+                    </button>
+                </div>
             </Modal>
         </div>
     )
