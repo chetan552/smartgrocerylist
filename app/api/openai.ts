@@ -1,6 +1,5 @@
 "use server"
 
-//import OpenAI from "openai";
 import {AzureOpenAI} from "openai";
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -10,7 +9,6 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL;
 const openai = new AzureOpenAI({
     apiVersion: '2024-08-01-preview',
     endpoint: OPENAI_API_ENDPOINT,
-    // baseURL: OPENAI_API_ENDPOINT,
     apiKey: OPENAI_API_KEY
 });
 
