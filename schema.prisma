@@ -26,8 +26,19 @@ model Grocery {
 }
 
 model List {
-  id                String     @default(cuid()) @id
+  id                String    @default(cuid()) @id
   name              String
   groceries         Grocery[]
+  user              User      @relation(references: [id], fields: [userId])
+  userId            String
   @@map(name: "list")
+}
+
+model User {
+  id                String    @default(cuid()) @id
+  name              String
+  email             String
+  createdAt         DateTime  @default(now()) @map(name: "created_at")
+  updatedAt         DateTime  @updatedAt @map(name: "updated_at")
+  List              List[]
 }

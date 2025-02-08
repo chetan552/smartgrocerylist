@@ -1,9 +1,20 @@
 "use client"
 
 import {signIn, useSession} from "next-auth/react";
+import {findUser} from "@/app/api/list";
+import {useEffect} from "react";
 
 export default function Home() {
-    const { data: session } = useSession()
+    const {data: session} = useSession()
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            if (session) {
+                await findUser(session.user?.name, session.user?.email);
+            }
+        }
+        fetchUser()
+    }, [session]);
 
     return (
         <>
@@ -15,7 +26,7 @@ export default function Home() {
                         </h1>
                     </div>
                 </main>
-                ) : (
+            ) : (
                 <main className='max-w-4xl mx-auto mt-4'>
                     <div className="flex justify-center">
                         <div className="card w-96 bg-base-100 shadow-xl mt-20 mb-20">
@@ -24,7 +35,8 @@ export default function Home() {
                                 <div className="card-actions justify-end">
                                     <button
                                         onClick={() => signIn("github")}
-                                        className="btn btn-primary w-full">Sign in with GitHub</button>
+                                        className="btn btn-primary w-full">Sign in with GitHub
+                                    </button>
                                 </div>
                             </div>
                         </div>
