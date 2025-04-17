@@ -1,37 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Grocery List
+
+A smart grocery list application built with Next.js and modern web technologies.
+
+## Technology Stack
+
+- [Next.js](https://nextjs.org/) 15.1.6
+- [React](https://react.dev/) 19.0.0
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prisma](https://www.prisma.io/) 6.3.0
+- [NextAuth.js](https://next-auth.js.org/) 4.24.11
+- [Tailwind CSS](https://tailwindcss.com/) 3.4.1
+- [DaisyUI](https://daisyui.com/) 4.12.23
+- [OpenAI](https://platform.openai.com/) 4.82.0
+
+## Prerequisites
+
+Before you begin, ensure you have installed:
+- [Node.js](https://nodejs.org/)
+- npm (comes with Node.js)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+2. Install dependencies:
+3. Set up your environment variables:
+   Create a `.env` file in the root directory and add necessary environment variables:
+   env 
+4. DATABASE_URL="your_database_url" 
+   NEXTAUTH_SECRET="your_nextauth_secret" 
+   NEXTAUTH_URL="[http://localhost:3000](http://localhost:3000)"
+   OPENAI_API_KEY="your_openai_api_key"
+5. Initialize and set up the database:
+   npx prisma generate npx prisma db push
+6. Run the development server:
+   bash npm run dev
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Authentication using NextAuth.js
+- Database integration with Prisma
+- Modern UI with Tailwind CSS and DaisyUI
+- AI-powered features using OpenAI integration
+- Real-time updates
+- Responsive design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+- `npm run dev` - Runs the development server
+- `npm run build` - Builds the application for production
+- `npm start` - Starts the production server
+- `npm run lint` - Runs ESLint for code linting
 
-To learn more about Next.js, take a look at the following resources:
+## Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/)
+- [Vercel](https://vercel.com/)
+- [OpenAI](https://openai.com/)
+- [Prisma](https://www.prisma.io/)
 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# smartgrocerylist
+## App Demo
+https://smartgrocerylist.vercel.app
